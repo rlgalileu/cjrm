@@ -5,7 +5,7 @@
   - O resultado exibido no console deve ser: false true.
 */
 
-console.log(true, false)
+console.log(!true, !false)
 
 /*
   02
@@ -18,11 +18,17 @@ console.log(true, false)
 
 const animals = ['macaco', 'tucano', 'elefante', 'pavão', 'hipopótamo']
 
+if (!animals.includes('leão')) {
+  console.log('Leão não existe no array animals.')
+} else {
+  console.log('Existe um leão no array animals.')
+}
+
 /*
   03
 
   - Some os números do array abaixo;
-  - Se durante a soma, o resultado ultrapassar 400, pare a operação e exiba  
+  - Se durante a soma, se o resultado ultrapassar 400, pare a operação e exiba  
     a frase abaixo no console, substituindo "RESULTADO_DA_SOMA" pelo valor  
     correto.
   
@@ -30,6 +36,19 @@ const animals = ['macaco', 'tucano', 'elefante', 'pavão', 'hipopótamo']
 */
 
 const randomNumbers = [59, 61, 73, 57, 35, 73, 21, 87, 43]
+let sumResult = 0
+const limit = 400
+
+for (let i = 0; i < randomNumbers.length; i++) {
+
+  if (sumResult > limit) {
+    console.log(`A soma ultrapassou ${limit}. Até aqui, o valor atual é ${sumResult}.`)
+
+    break
+  }
+
+  sumResult += randomNumbers[i]
+}
 
 /*
   04
@@ -41,6 +60,20 @@ const randomNumbers = [59, 61, 73, 57, 35, 73, 21, 87, 43]
 */
 
 const sentence = ['A', 'certeza', 'dúvida', 'é', 'o', 'princípio', 'da', 'sabedoria.']
+let newSentence = ''
+
+for (let i = 0; i < sentence.length; i++) {
+  const word = sentence[i]
+
+  if (word === 'certeza') {
+    continue
+  }
+
+  newSentence += `${word} `
+
+}
+
+console.log(newSentence)
 
 /*
   05
@@ -59,10 +92,43 @@ const sentence = ['A', 'certeza', 'dúvida', 'é', 'o', 'princípio', 'da', 'sab
 
 const randomValues = [57, false, 'JS', [], true, 'HTML', 31, null, false, 'CSS', 97, true, 'Git', 11, 'sticker', false, 'GitHub', true, null]
 
+let firstFourStrings = []
+let booleansAmount = 0
+let totalIterations = 0
+
+for (let i = 0; i < randomValues.length; i++) {
+  const item = randomValues[i]
+  const typeofItem = typeof item
+  const isItemAString = typeofItem === 'string'
+  const isItemABollean = typeofItem === 'boolean'
+
+  if (firstFourStrings.length === 4) {
+    break
+  }
+
+  if (isItemAString) {
+    firstFourStrings.push(item)
+  }
+  
+  if (isItemABollean) {
+    booleansAmount++
+  }
+
+  totalIterations++
+}
+
+const lastItem = firstFourStrings[firstFourStrings.length - 1]
+const fourStrings = firstFourStrings.join(', ').replace(`, ${lastItem}`, ` e ${lastItem}`)
+
+console.log(`3 informações sobre o array randomValues:
+  - As primeiras 4 strings são ${fourStrings};
+  - Até que as primeiras 4 strings fossem iteradas, ${booleansAmount} booleans foram iterados;
+  - O array foi iterado por ${totalIterations} vezes.`)
+
 /*
   06
 
-  - Descomente a constante abaixo atribua a ela algum tipo de bebida. Exemplo:  
+  - Descomente a constante abaixo e atribua a ela algum tipo de bebida. Exemplo:  
     água, refrigerante ou suco;
   - Utilize um switch statement com cases para essas 3 possibilidades de bebida;
   - Se o tipo da bebida é água, atribua à uma variável a mensagem "Substância 
@@ -79,7 +145,27 @@ const randomValues = [57, false, 'JS', [], true, 'HTML', 31, null, false, 'CSS',
     da bebida além da que você escolheu.
 */
 
-// const drinkType
+const drinkType = 'cerveja'
+
+let message = null
+
+switch (drinkType) {
+  case 'água':
+    message = 'Substância química cujas moléculas são formadas por dois átomos de hidrogênio e um de oxigênio.'
+    break;
+  case 'refrigerante':
+    message = 'Bebida não alcoólica e não fermentada, fabricada industrialmente, à base de água mineral e açúcar.'
+    break;
+  case 'suco':
+    message = 'Bebida produzida do líquido extraído de frutos.'
+    break;
+
+  default:
+    message = 'Bebida desconhecida.'
+    break;
+}
+
+console.log(message)
 
 /*
   07
@@ -89,8 +175,6 @@ const randomValues = [57, false, 'JS', [], true, 'HTML', 31, null, false, 'CSS',
     para testar o switch que você escreveu.
 */
 
-const a = 2
-
 // if (a === 0) {
 //   console.log(`O valor de "a" é ${a}`)
 // } else if (a === 1) {
@@ -98,3 +182,20 @@ const a = 2
 // } else {
 //   console.log('O valor de "a" é qualquer número, exceto 0 e 1')
 // }
+
+const number = 2
+const
+
+switch (number) {
+  case 0:
+    console.log(`O valor de "number" é ${number}`)
+    break;
+  case 1:
+    console.log(`O valor de "number" é ${number}`)
+    break;
+
+  default:
+    console.log('O valor de "number" é qualquer número, exceto 0 e 1')
+    break;
+}
+
