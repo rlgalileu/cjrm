@@ -12,7 +12,13 @@ const getCatInfo = () => {
   const name = 'Marcos'
   let age = 3
   const color = 'Cinza'
+
+  return { name, age, color }
 }
+
+const { name, age, color } = getCatInfo()  // Destructuring assignment
+
+console.log(`${name} é um gato ${color} de ${age} anos.`)
 
 /*
   02
@@ -22,6 +28,16 @@ const getCatInfo = () => {
     maiúsculas.
 */
 
+// const external = () => {
+//   const movie = 'Parasite'
+
+//   const internal = () => {
+//     const extraInternal = () => {
+//       console.log(movie.toUpperCase())
+//     }
+//   }
+// }
+
 const external = () => {
   const movie = 'Parasite'
 
@@ -29,7 +45,9 @@ const external = () => {
     const extraInternal = () => {
       console.log(movie.toUpperCase())
     }
+    extraInternal()  // first line
   }
+  internal()  // second line
 }
 
 external()
@@ -45,6 +63,8 @@ external()
 
 let randomNumbers = [3, 2, 1]
 
+console.log(randomNumbers.reverse())
+
 /*
   04
 
@@ -55,9 +75,13 @@ let randomNumbers = [3, 2, 1]
 
 let crazyArray = [
   { prop1: '1', prop2: '2' },
-  function getMessage () { return 'hi' },
-  [ 5, 96, 53  ]
+  function getMessage() { return 'hi' },
+  [5, 96, 53]
 ]
+
+crazyArray.shift()
+
+console.log(crazyArray)
 
 /*
   05
@@ -76,11 +100,15 @@ const dogs = [
   { name: 'Xica', age: 6, gender: 'Female', breed: 'Chihuahua' }
 ]
 
+const zequinha = dogs.find(dog => dog.name === 'Zequinha')
+
+console.log(zequinha)
+
 /*
   06
 
   - Cole o markup HTML abaixo em seu index.html;
-  - Utilize o query selector para obter a referência do título principal da  
+  - Utilize o query selector para obter a referência do título principal da
     página, através da classe dele;
   - Exiba a referência do título principal no console.
 
@@ -108,10 +136,19 @@ const dogs = [
   </section>
 */
 
+const h1 = document.querySelector('.main-title')
+
+console.log(h1)
+
+
 /*
   07
 
-  - Obtenha um NodeList com as referências de todos os títulos secundários da  
+  - Obtenha um NodeList com as referências de todos os títulos secundários da
     página, através da classe deles;
   - Exiba esse NodeList no console.
 */
+
+const allH2 = document.querySelectorAll('.secondary-title')
+
+console.log(allH2)
