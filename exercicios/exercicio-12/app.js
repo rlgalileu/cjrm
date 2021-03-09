@@ -12,6 +12,8 @@
   - Todos os filmes e diretores do array devem constar na lista.
 */
 
+console.log('----------------- Exercício 01 -----------------')
+
 const best2019Movies = [
   { title: 'Parasita', directedBy: 'Bong Joon-ho' },
   { title: 'Bacurau', directedBy: 'Kleber Mendonça Filho' },
@@ -27,6 +29,17 @@ const best2019Movies = [
   { title: 'A Vida Invisível', directedBy: 'Karim Aïnouz' }
 ]
 
+let message = 'Segundo o site Omelete, os melhores filmes de 2019 são:'
+
+const generateMovieMessage = movie => {
+  message += `  
+  - ${movie.title}, dirigido por ${movie.directedBy}`
+}
+
+best2019Movies.forEach(generateMovieMessage)
+
+console.log(message)
+
 /*
   02
 
@@ -40,6 +53,8 @@ const best2019Movies = [
   
   - As 4 linhas da mensagem, podem ser exibidas separadamente.
 */
+
+console.log('----------------- Exercício 02 -----------------')
 
 const youtubeUser = {
   name: 'Roger Melo',
@@ -59,16 +74,27 @@ const youtubeUser = {
       gitHub: 'https://github.com/Roger-Melo'
     },
     country: 'Brasil'
+  },
+
+  getRecentVideos() {
+    console.log(`Vídeos recentes de ${this.name}`)
+    
+    this.videos.recentVideos.forEach(video => {
+      console.log(video.title)
+    })
   }
 }
+
+youtubeUser.getRecentVideos()
 
 /*
   03
 
   - Exiba o valor do PI no console.
 */
+console.log('----------------- Exercício 03 -----------------')
 
-
+console.log(Math.PI)
 
 /*
   04
@@ -76,8 +102,11 @@ const youtubeUser = {
   - Arredonde o número que a constante abaixo armazena para 9 e exiba-o no  
     console.
 */
+console.log('----------------- Exercício 04 -----------------')
 
 const firstNumber = 8.3
+
+console.log(Math.ceil(firstNumber))
 
 /*
   05
@@ -86,7 +115,11 @@ const firstNumber = 8.3
     forma padrão, e exiba-o no console.
 */
 
+console.log('----------------- Exercício 05 -----------------')
+
 const secondNumber = 3.5
+
+console.log(Math.round(secondNumber))
 
 /*
   06
@@ -95,7 +128,10 @@ const secondNumber = 3.5
     console.
 */
 
+console.log('----------------- Exercício 06 -----------------')
 const thirdNumber = 8.9
+
+console.log(Math.floor(thirdNumber))
 
 /*
   07
@@ -103,7 +139,11 @@ const thirdNumber = 8.9
   - Exiba no console o número abaixo com a parte decimal removida.
 */
 
+console.log('----------------- Exercício 07 -----------------')
+
 const fourthNumber = 5.5
+
+console.log(Math.trunc(fourthNumber))
 
 /*
   08
@@ -111,3 +151,9 @@ const fourthNumber = 5.5
   - A cada vez que o index.html for carregado, exiba no console um número  
     aleatório de 0 à 10, incluindo 0 e 10.
 */
+
+console.log('----------------- Exercício 08-----------------')
+
+const randomNumber = Math.random() 
+
+console.log(Math.round(randomNumber * 10))
