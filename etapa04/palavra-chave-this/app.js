@@ -15,7 +15,7 @@ const user = {
     console.log('Usuário deslogado')
   },
 
-  logBlogPosts: function () {
+  logBlogPosts () {
     console.log(`${this.name} escreveu os seguintes posts:`)
 
     this.blogPosts.forEach(post => {
@@ -29,4 +29,4 @@ const user = {
 
 user.logBlogPosts()
 
-user.test()
+user.test()  // objeto window
