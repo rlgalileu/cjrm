@@ -5,7 +5,9 @@
     maiúsculas.
 */
 
+const h1 = document.querySelector('h1')
 
+h1.textContent = h1.textContent.toUpperCase()
 
 /*
   02
@@ -15,6 +17,13 @@
 */
 
 const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
+const ul = document.querySelector('.numbers')
+
+const insertNumberIntoUl = number => {
+  ul.innerHTML += `<li class="number">${number}</li>`
+}
+
+numbers.forEach(insertNumberIntoUl)
 
 /*
   03
@@ -24,6 +33,20 @@ const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
     - Se o número é ímpar, exiba-o na cor "pink".
 */
 
+const lis = document.querySelectorAll('.number')
+
+const changeLiColor = li => {
+  const isEven = Number(li.textContent) % 2 === 0
+
+  if (isEven) {
+   li.style.color = 'lightblue'
+   return
+  } 
+
+  li.style.color = 'pink'
+}
+
+lis.forEach(changeLiColor)
 
 
 /*
@@ -34,7 +57,9 @@ const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
   P.s: a classe "body-background" já está declarada no style.css.
 */
 
+const body = document.body
 
+body.classList.add('body-background')
 
 /*
   05
@@ -44,7 +69,9 @@ const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
     do link do index.html.
 */
 
+const repoLink = document.querySelector('.link')
 
+repoLink.setAttribute('href', 'https://github.com/roger-melo-treinamentos/curso-de-js-roger-melo')
 
 /*
   06
@@ -52,7 +79,7 @@ const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
   - Exiba o novo valor do atributo href do link no console.
 */
 
-
+console.log(repoLink.getAttribute('href'))
 
 /*
   07
@@ -61,7 +88,7 @@ const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
     manipuladas via JS no h1.
 */
 
-
+console.log(h1.style)
 
 /*
   08
@@ -69,7 +96,7 @@ const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
   - Remova a classe "body-background", do elemento body.
 */
 
-
+body.classList.remove('body-background')
 
 /*
   09
@@ -77,3 +104,5 @@ const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
   - Se o link da página possuir uma classe "link", remova-a;
   - Não utilize o método remove() para fazer isso.
 */
+
+repoLink.classList.toggle('link')
